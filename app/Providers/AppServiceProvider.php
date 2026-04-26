@@ -16,9 +16,10 @@ class AppServiceProvider extends ServiceProvider
     {
         if (app()->environment('production')) {
             try {
-                Artisan::call('migrate', ['--force' => true]);
+                Artisan::call('optimize:clear'); // clear cache
+                Artisan::call('migrate', ['--force' => true]); // migrate DB
             } catch (\Exception $e) {
-                // biar tidak crash kalau gagal
+                // biar tidak crash
             }
         }
     }
