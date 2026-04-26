@@ -39,3 +39,14 @@ Route::post('/logout', function (Request $request) {
 
     return redirect('/');
 })->name('logout');
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+Route::get('/create-admin', function () {
+    User::create([
+        'name' => 'Admin',
+        'email' => 'admin@gmail.com',
+        'password' => Hash::make('12345678'),
+    ]);
+    return 'Admin berhasil dibuat';
+});
