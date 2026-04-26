@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,12 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if (app()->environment('production')) {
-            try {
-                Artisan::call('optimize:clear'); // clear cache
-                Artisan::call('migrate', ['--force' => true]); // migrate DB
-            } catch (\Exception $e) {
-                // biar tidak crash
-            }
+            URL::forceScheme('https');
         }
     }
 }
