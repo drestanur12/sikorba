@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
 
     <div class="-mt-6 min-h-screen bg-cover bg-center flex items-center justify-center px-4 py-6 sm:py-10"
         style="background-image:url('/bg-rutan.jpg')">
@@ -35,4 +35,4 @@
 
     </div>
 
-</x-app-layout>
+</x-guest-layout>
